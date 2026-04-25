@@ -2,7 +2,9 @@
 backend/app.py  —  Flask REST API for Twitter Sentiment Analysis
 Run: python app.py
 """
-
+@app.route("/")
+def home():
+    return "Sentiment API is running 🚀"
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pickle, os, re, string, time
