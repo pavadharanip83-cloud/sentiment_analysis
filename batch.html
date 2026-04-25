@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batch Analysis — SentimentAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <nav class="nav">
+        <div class="nav-logo"><span class="logo-icon">◈</span><span class="logo-text">SentimentAI</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Analyse</a>
+            <a href="batch.html" class="nav-link active">Batch</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="about.html" class="nav-link">About</a>
+        </div>
+        <div class="nav-badge">SVM Model · Live</div>
+    </nav>
+
+    <main class="main">
+        <div class="page-header">
+            <h1>Batch <span class="gradient-text">Analysis</span></h1>
+            <p>Upload a CSV file with tweets and get bulk sentiment predictions instantly.</p>
+        </div>
+
+        <!-- Upload Zone -->
+        <div class="upload-zone" id="uploadZone">
+            <input type="file" id="csvFile" accept=".csv" />
+            <div class="upload-icon">📂</div>
+            <h3>Drop your CSV file here</h3>
+            <p>or <strong style="color:var(--accent);cursor:pointer" onclick="document.getElementById('csvFile').click()">browse to upload</strong></p>
+            <p style="margin-top:.5rem;font-size:.8rem">File should have a column with tweet text</p>
+        </div>
+
+        <!-- Column selector -->
+        <div class="col-select-row" id="colSelectRow" style="display:none">
+            <label>Select tweet column:</label>
+            <select class="col-select" id="colSelect"></select>
+        </div>
+
+        <button class="run-btn" id="runBtn" disabled>▶ Run Batch Analysis</button>
+
+        <!-- Results -->
+        <div class="batch-results" id="batchResults">
+            <div class="result-summary" id="resultSummary"></div>
+            <div class="result-table-wrap">
+                <table class="result-table" id="resultTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tweet</th>
+                            <th>Sentiment</th>
+                            <th>Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultBody"></tbody>
+                </table>
+            </div>
+            <button class="download-btn" id="downloadBtn">⬇ Download Results CSV</button>
+        </div>
+    </main>
+
+    <footer class="footer">SentimentAI · SVM-based Twitter Sentiment Analysis</footer>
+
+    <script src="batch.js"></script>
+</body>
+
+</html>

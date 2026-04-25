@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — SentimentAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <nav class="nav">
+        <div class="nav-logo"><span class="logo-icon">◈</span><span class="logo-text">SentimentAI</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Analyse</a>
+            <a href="batch.html" class="nav-link">Batch</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="about.html" class="nav-link active">About</a>
+        </div>
+        <div class="nav-badge">SVM Model · Live</div>
+    </nav>
+
+    <main class="main">
+        <div class="page-header">
+            <h1>About the <span class="gradient-text">Project</span></h1>
+            <p> Twitter Sentiment Analysis using Support Vector Machines.</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>📌 Project Overview</h3>
+                <p>SentimentAI is a machine learning system that classifies Twitter tweets into three sentiment categories: Positive, Negative, and Neutral. It uses a Support Vector Machine (SVM) with TF-IDF vectorization — the best-performing traditional
+                    ML approach for short, noisy social media text.</p>
+            </div>
+
+            <div class="about-card">
+                <h3>🎯 Objectives</h3>
+                <p>1. Build a robust tweet preprocessing pipeline using NLTK.<br><br> 2. Train and evaluate multiple ML models to identify the best performer.<br><br> 3. Deploy a real-time REST API and professional web interface.<br><br> 4. Compare SVM against
+                    Naive Bayes, LR, RF and XGBoost.</p>
+            </div>
+
+            <div class="about-card">
+                <h3>🧠 Why SVM?</h3>
+                <p>Support Vector Machines find the optimal decision boundary (hyperplane) that maximises the margin between sentiment classes in high-dimensional TF-IDF space. Unlike tree-based models, SVMs excel on sparse, high-dimensional text data —
+                    making LinearSVC the gold standard for traditional NLP classification tasks.</p>
+            </div>
+
+            <div class="about-card">
+                <h3>🔧 Preprocessing Pipeline</h3>
+                <p>Each tweet undergoes: lowercasing → URL removal → @mention removal → hashtag cleaning → RT stripping → punctuation removal → stopword filtering (preserving negations like "not", "never") → lemmatization using WordNetLemmatizer. This produces
+                    clean, normalised tokens ready for TF-IDF encoding.</p>
+            </div>
+        </div>
+
+        <!-- Tech stack -->
+        <div class="dash-card" style="margin-bottom:2rem">
+            <h3 style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--accent);margin-bottom:1.2rem">⚙️ Technology Stack</h3>
+            <ul class="tech-list">
+                <li><span class="tech-badge">Python</span> Core language for ML pipeline and backend</li>
+                <li><span class="tech-badge">scikit-learn</span> LinearSVC, TF-IDF vectorizer, model evaluation</li>
+                <li><span class="tech-badge">NLTK</span> Tokenization, stopword removal, lemmatization</li>
+                <li><span class="tech-badge">Flask</span> REST API backend with CORS support</li>
+                <li><span class="tech-badge">HTML/CSS</span> Custom professional frontend (no frameworks)</li>
+                <li><span class="tech-badge">Chart.js</span> Interactive performance charts on dashboard</li>
+                <li><span class="tech-badge">Kaggle</span> Twitter dataset for training and evaluation</li>
+            </ul>
+        </div>
+
+        <!-- Architecture -->
+        <div class="dash-card">
+            <h3 style="font-family:'Syne',sans-serif;font-size:1rem;color:var(--accent);margin-bottom:1.2rem">🏗️ System Architecture</h3>
+            <div class="pipeline">
+                <div class="pipe-step">
+                    <div class="pipe-num">CLIENT</div>
+                    <div class="pipe-icon">🌐</div>
+                    <div class="pipe-name">Frontend</div>
+                    <div class="pipe-desc">HTML + CSS + JS web app. 4 pages: Analyse, Batch, Dashboard, About.</div>
+                </div>
+                <div class="pipe-arrow">⇄</div>
+                <div class="pipe-step">
+                    <div class="pipe-num">API</div>
+                    <div class="pipe-icon">⚡</div>
+                    <div class="pipe-name">Flask Backend</div>
+                    <div class="pipe-desc">REST endpoints: /predict, /predict/batch, /health. CORS enabled.</div>
+                </div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-step">
+                    <div class="pipe-num">MODEL</div>
+                    <div class="pipe-icon">🧠</div>
+                    <div class="pipe-name">SVM Pipeline</div>
+                    <div class="pipe-desc">TF-IDF (75K features, trigrams) → CalibratedLinearSVC → Probabilities.</div>
+                </div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-step">
+                    <div class="pipe-num">OUTPUT</div>
+                    <div class="pipe-icon">📊</div>
+                    <div class="pipe-name">JSON Response</div>
+                    <div class="pipe-desc">Sentiment + confidence + probability breakdown returned to client.</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">SentimentAI · SVM-based Twitter Sentiment Analysis</footer>
+</body>
+
+</html>

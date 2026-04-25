@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — SentimentAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <nav class="nav">
+        <div class="nav-logo"><span class="logo-icon">◈</span><span class="logo-text">SentimentAI</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Analyse</a>
+            <a href="batch.html" class="nav-link">Batch</a>
+            <a href="dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="about.html" class="nav-link">About</a>
+        </div>
+        <div class="nav-badge">SVM Model · Live</div>
+    </nav>
+
+    <main class="main">
+        <div class="page-header">
+            <h1>Model <span class="gradient-text">Dashboard</span></h1>
+            <p>Performance metrics and visual analytics for the SVM sentiment model.</p>
+        </div>
+
+        <!-- Top metrics -->
+        <div class="stats-row" style="margin-bottom:2rem">
+            <div class="stat-card">
+                <div class="stat-value">85</div>
+                <div class="stat-suffix">%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">84</div>
+                <div class="stat-suffix">%</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">85</div>
+                <div class="stat-suffix">%</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">84</div>
+                <div class="stat-suffix">%</div>
+                <div class="stat-label">F1-Score</div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Accuracy by class -->
+            <div class="dash-card">
+                <h3>Accuracy by Sentiment Class</h3>
+                <canvas id="classAccChart"></canvas>
+            </div>
+
+            <!-- Sentiment distribution -->
+            <div class="dash-card">
+                <h3>Training Data Distribution</h3>
+                <canvas id="distChart"></canvas>
+            </div>
+
+            <!-- Model comparison -->
+            <div class="dash-card" style="grid-column: 1 / -1">
+                <h3>Model Comparison — Why SVM Wins</h3>
+                <canvas id="modelChart"></canvas>
+            </div>
+
+            <!-- Confusion matrix visual -->
+            <div class="dash-card">
+                <h3>Confusion Matrix</h3>
+                <canvas id="cmChart"></canvas>
+            </div>
+
+            <!-- Preprocessing pipeline -->
+            <div class="dash-card">
+                <h3>Feature Importance (Top TF-IDF Tokens)</h3>
+                <canvas id="featureChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">SentimentAI · SVM-based Twitter Sentiment Analysis</footer>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
